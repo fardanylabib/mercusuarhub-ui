@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+    <style>
+        table {
+        width: 100%;
+        /* border-collapse: collapse; */
+        }
+        th, td {
+        padding: 8px;
+        text-align: center;
+        }
+    </style>
+    <title>Static Template</title>
+  </head>
+  <body class="bg-slate-100">
+    <div class="bg-blue-400 text-white p-4 fixed top-0 inset-x-0">
+        <h1 class="text-xl font-bold">
+          Smart Mercusuar
+        </h1>
+    </div>
+    <div class="py-8"></div>
+    <div class="m-4 p-4 shadow rounded-xl bg-white">
+        <h2 class="text-lg font-semibold mb-4">
+            Real Time Monitor
+        </h2>
+        <div class="grid grid-cols-3">
+            <div></div>
+            <div>
+                <div class="rounded-2xl mx-4 h-20 w-20 overflow-hidden mx-auto">
+                    <div class="bg-yellow-400 h-full w-full" id="lamp-2"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="text-xl font-bold pr-2 mr-2 border-r-2 border-gray-500">L2</div>
+                    <div class="text-xs">
+                        <div class="text-center" id="lamp-2-v">
+                            0 V
+                        </div>
+                        <div class="text-center" id="lamp-2-a">
+                            0 A
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <div>
+                <div class="rounded-2xl mx-4 h-20 w-20 overflow-hidden mx-auto">
+                    <div class="bg-yellow-400 h-full w-full" id="lamp-1"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="text-xl font-bold pr-2 mr-2 border-r-2 border-gray-500">L1</div>
+                    <div class="text-xs">
+                        <div class="text-center" id="lamp-1-v">
+                            0 V
+                        </div>
+                        <div class="text-center" id="lamp-1-a">
+                            0 A
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <div>
+                <div class="rounded-2xl mx-4 h-20 w-20 overflow-hidden mx-auto">
+                    <div class="bg-yellow-400 h-full w-full" id="lamp-3"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="text-xl font-bold pr-2 mr-2 border-r-2 border-gray-500">L3</div>
+                    <div class="text-xs">
+                        <div class="text-center" id="lamp-3-v">
+                            0 V
+                        </div>
+                        <div class="text-center" id="lamp-3-a">
+                            0 A
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <div>
+                <div class="rounded-2xl mx-4 h-20 w-20 overflow-hidden mx-auto">
+                    <div class="bg-yellow-400 h-full w-full" id="lamp-4"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="text-xl font-bold pr-2 mr-2 border-r-2 border-gray-500">L4</div>
+                    <div class="text-xs">
+                        <div class="text-center" id="lamp-4-v">
+                            0 V
+                        </div>
+                        <div class="text-center" id="lamp-4-a">
+                            0 A
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+
+    </div>
+    <div class="m-4 p-4 shadow rounded-xl bg-white">
+        <div class="flex mb-4 items-baseline">
+            <h2 class="text-lg font-semibold mb-4 flex-grow">
+                Control
+            </h2>
+            <button class="text-white py-2 px-3 bg-blue-400 hover:bg-blue-500 rounded-lg mr-2" id="start" onclick="sendTableData()">
+                Save & Start
+            </button>
+            <button class="text-white py-2 px-3 bg-red-400 hover:bg-red-500 rounded-lg" id="stop">
+                Stop
+            </button>
+        </div>
+        
+        <table id="dynamicTable" class="text-sm">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>State</th>
+                <th>Delay (ms)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+        <button class="text-center py-2 hover:border-blue-500 border-2 border-dashed border-blue-400 w-full rounded-lg text-blue-400 hover:text-blue-500" onclick="addRow()">Add Step</button>
+    </div>
+    <script src="control.js"></script>
+    <script src="monitor.js"></script>
+  </body>
+</html>

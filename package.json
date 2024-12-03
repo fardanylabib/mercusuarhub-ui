@@ -1,0 +1,29 @@
+{
+    "name": "boilerplate-html-css-js",
+    "version": "1.0.0",
+    "description": "A static html template with css reset and a JS file ",
+    "main": "index.html",
+    "scripts": {
+      "start": "serve",
+      "build": "echo This is a static template, there is no bundler or bundling involved!"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/codesandbox-app/static-template.git"
+    },
+    "keywords": [
+      "static",
+      "css",
+      "css-reset",
+      "html"
+    ],
+    "author": "Ives van Hoorne",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/codesandbox-app/static-template/issues"
+    },
+    "homepage": "https://github.com/codesandbox-app/static-template#readme",
+    "devDependencies": {
+      "serve": "^11.2.0"
+    }
+  }
